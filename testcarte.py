@@ -22,11 +22,11 @@ url = "https://data.explore.star.fr/api/records/1.0/search/?dataset=tco-bus-vehi
       "=450&facet=numerobus&facet=nomcourtligne&facet=destination"
 basededonnee = json.load(urlr.urlopen(url))
 
-d_lignes = {}
+
 df = pandas.DataFrame([basededonnee['records'][i]['fields'] for i in range(len(basededonnee['records']))])
 m = folium.Map(location = [48.146952, -1.705877])
 
-
+d_lignes = {}
 for ligne in range(len(df)):
     malignedeb = df.loc[ligne, 'nomcourtligne']
     if malignedeb not in d_lignes.keys():
@@ -36,3 +36,4 @@ for ligne in range(len(df)):
                   ,icon=folium.Icon(icon='bus', prefix="fa")).add_to(d_lignes[str(malignedeb)])
 folium.LayerControl(collapsed=False).add_to(m)
 m.save('map.html')
+print(list(df))
