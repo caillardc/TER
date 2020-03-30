@@ -3,13 +3,13 @@ def html(title, links_lst=[], body=None):
     links_str = ""
     for link in links_lst:
         attr_str = attr(link)
-        links_str += "<link {} >".format(attr_str)
+        links_str += "<link {}>".format(attr_str)
     return "<!DOCTYPE html><html><head><title>{}</title><meta charset=\"UTF-8\">{}</head>{}</html>".format(title, links_str, body)
 
 def attr(attr_dic):
     str_attr = ""
     for at, val in attr_dic.items():
-        str_attr += " {}=\"{}\" ".format(at, val)
+        str_attr += " {}=\"{}\"".format(at, val)
     return str_attr
 
 def body(elem, attr_dic={}):
