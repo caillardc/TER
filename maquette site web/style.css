@@ -19,13 +19,13 @@ article {
 header > #titre {
 	grid-area: I;
 	padding-left: 5%;
+	width: 100%
 }
 
 header > #titre h1 {
 	text-align: center;
 	font-family: calibri;
-	width:80%;
-	margin:0 0 0 0.8rem;
+	width:85%;
 }
 
 header > #titre h1, header > #titre img{
@@ -114,7 +114,25 @@ p#firsttxt, #vertical, {
 	#zonechiffre > .container > .bloc p#firsttxt{
 		font-size: 6rem;
 	}
+	#vertical{
+		font-size: 0.8rem;
+	}
  }
+ 
+ @media(max-width: 1200px) {
+	#zonechiffre > .container > .bloc {
+		position: relative;
+		display: block;
+		width: 100%;
+		border-right: none;
+	}
+	#zonechiffre > .container > .bloc p#firsttxt{
+		font-size: 8rem;
+	}
+	#vertical{
+		font-size: 1rem;
+	}
+}
 #zonechiffre > .container > .bloc span#vertical{
 	color: white;
 	writing-mode: sideways-lr;
@@ -123,7 +141,7 @@ p#firsttxt, #vertical, {
 
 #zonechiffre > .container > .bloc p#last{
 	color: #424952;
-	font-size: 1.2rem;
+	font-size: 1rem;
 }
 
 #zonechiffre > .container > .bloc p#region{
