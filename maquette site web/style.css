@@ -1,0 +1,252 @@
+body{
+	margin:0;
+}
+
+header {
+	box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+	display: grid;
+	grid-template-areas: 'I R S';
+	align-items: center; 
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	background: white;
+	height:auto;
+}
+article {
+	padding-top: 4.8rem;
+}
+header > #titre {
+	grid-area: I;
+	padding-left: 5%;
+}
+
+header > #titre h1 {
+	text-align: center;
+	font-family: calibri;
+	width:80%;
+	margin:0 0 0 0.8rem;
+}
+
+header > #titre h1, header > #titre img{
+	display: inline-block;
+	vertical-align: middle;
+}
+header > #titre img{
+	max-width: 50px;
+	width: 10%;
+}
+
+#menu {
+	grid-area: S;
+
+}
+#menu .container{
+	margin-right:3rem;
+}
+nav ul {
+    list-style-type: none;
+}
+
+nav a {
+	display: block;
+	text-decoration: none;
+	color: rgb(67, 67, 67);
+	font-family: Tahoma;
+}
+
+nav li{
+	width: 20%;
+	text-align:center;
+	display: table-cell;
+	vertical-align: middle;
+	height: 3rem;
+	padding: 0 1rem;
+}
+
+#zonechiffre {
+	background: rgb(246, 193, 71);
+	border-bottom: 1px solid #ddd;
+	padding: 2rem 5%;
+}
+
+#zonechiffre > .container > .bloc {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 32%;
+	border-right: 1px solid white;
+	height: 100%;
+}
+
+#zonechiffre > .container > .bloc.bloc3 {
+	border: none;
+}
+
+#zonechiffre > .container > .bloc > .txtpre, #zonechiffre > .container > .bloc img{
+	display: inline-block;
+	vertical-align: middle;	
+}
+
+#zonechiffre > .container > .bloc > .txtpre{
+	width: 50%;
+}
+#zonechiffre > .container > .bloc img{
+	max-width: 8rem;
+	width: 20%;
+	margin-right: 5%;
+	margin-left: 15%;
+}
+p#firsttxt, #vertical, {
+	display: inline-block;
+	vertical-align: middle;
+}
+#zonechiffre > .container > .bloc p {
+	font-family:calibri;
+	margin: 0;
+}
+#zonechiffre > .container > .bloc p#firsttxt{
+	color: black;
+	font-size: 8em;
+	width:100%;
+}
+ @media(max-width: 1500px) {
+	#zonechiffre > .container > .bloc p#firsttxt{
+		font-size: 6rem;
+	}
+ }
+#zonechiffre > .container > .bloc span#vertical{
+	color: white;
+	writing-mode: sideways-lr;
+	font-size: 1rem;
+}
+
+#zonechiffre > .container > .bloc p#last{
+	color: #424952;
+	font-size: 1.2rem;
+}
+
+#zonechiffre > .container > .bloc p#region{
+	color: white;
+	font-size: 2rem;
+	margin-top: 1rem;
+}
+
+#zonechiffre > .container > .bloc p#textedessous{
+	color: #424952;
+	font-size: 1.45rem;
+}
+
+ #zonechiffre > .container > .bloc #saison{
+	color: black;
+	font-size: 4rem;
+ }
+
+
+#zonechiffre > .container > .bloc p#textedessus{
+	color: white;
+	font-size: 1.7rem;
+	margin-top: 1rem;
+}
+
+#zonecarte > .container {
+	padding-top: 2rem;
+	padding-bottom: 2rem; 
+	border-bottom: 1px solid #ddd;
+}
+
+#zonecarte > .container > .bloc {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	height: 30rem;
+}
+#zonecarte > .container > .bloc.bloc1 {
+	width : 40%;
+}
+#zonecarte > .container > .bloc.bloc.carte {
+	width : 60%;
+}
+
+#zonecarte > .container > .bloc iframe {
+	position:relative;
+	width:90%;
+	height: 100%;
+	left: 2rem;
+	border:none;
+	box-shadow: 0.1rem 0.3rem 0.3rem rgba(0, 0, 0, 0.15);
+}
+
+.container > .bloc > .texte h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.4; 
+	font-family: calibri;
+	color: #424952;
+}  
+	  
+.container > .bloc > .texte p {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	font-family: Tahoma;
+	color: #424952;
+}
+.container > .bloc > .texte {
+    position: absolute;
+    top: 50%;
+	left: 50%;
+    margin-right: -50%;
+	transform: translate(-50%, -50%);
+	width: 70%;
+	
+}
+
+.zonegraph#first {
+	position: relative;
+	background: #e6f1f3;
+}
+
+.zonegraph > .container {
+  padding-top: 2rem;
+  padding-bottom: 2rem; 
+  border-bottom: 1px solid #ddd;
+}
+
+#second > .container {
+	border-bottom: none;
+}
+.zonegraph > .container > .bloc {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	height: 500px;
+	width: 50%;
+	max-width:50%;
+}
+
+.zonegraph > .container > .bloc.graph .legraph{
+	position: absolute;
+	width:90%;
+    top: 50%;
+	left: 50%;
+    margin-right: -50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0.1rem 0.3rem 0.3rem rgba(0, 0, 0, 0.15)
+	
+}
+
+footer .texte{
+	position: relative;
+	text-align: center;
+	height: 4rem;
+	background: rgb(66, 73, 82);
+	padding-top: 0.8rem;
+	overflow: hidden;
+
+}
+
+footer p {
+	height: 100%;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	color: rgb(255, 255, 255);
+}
