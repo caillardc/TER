@@ -127,17 +127,20 @@ p#firsttxt, #vertical, {
 		border-right: none;
 		border-bottom: 1px solid white;
 		padding: 2rem 0;
-}
+	}
 
-#zonechiffre > .container > .bloc.bloc3 {
-	border: none;
-}
+	#zonechiffre > .container > .bloc.bloc3 {
+		border: none;
 	}
 	#zonechiffre > .container > .bloc p#firsttxt{
 		font-size: 8rem;
 	}
 	#vertical{
 		font-size: 1rem;
+	}
+	
+	#zonechiffre > .container > .bloc > .txtpre{
+		width: 60%;
 	}
 }
 #zonechiffre > .container > .bloc span#vertical{
