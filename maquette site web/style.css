@@ -125,6 +125,13 @@ p#firsttxt, #vertical, {
 		display: block;
 		width: 100%;
 		border-right: none;
+		border-bottom: 1px solid white;
+		padding: 2rem 0;
+}
+
+#zonechiffre > .container > .bloc.bloc3 {
+	border: none;
+}
 	}
 	#zonechiffre > .container > .bloc p#firsttxt{
 		font-size: 8rem;
