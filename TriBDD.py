@@ -3,6 +3,7 @@ import json
 import pandas
 import folium
 from folium.plugins import MarkerCluster
+from folium import IFrame
 from datetime import datetime as dt
 
 moisannee = dt.strftime(dt.now(), "%Y-%m")
@@ -41,7 +42,13 @@ m = folium.Map(location=[45.770799, 3.095003], zoom_start=6)
 mc = MarkerCluster()
 
 for row in df.itertuples():
-    folium.Marker(location=row.latlon, popup=row.title).add_to(mc)
+    html = """
+    <h3> {} </h3><br>
+    <a href=\"{}\" target=\"_blank\"><p> {} </p></a>
+    """.format(row.date_start, row.link, row.title)
+    iframe = folium.IFrame(html=html, width=200, height=200)
+    popup = folium.Popup(iframe, max_width=2650)
+    folium.Marker(location=row.latlon, popup=popup).add_to(mc)
 m.add_child(mc)
 m.save('mapBD.html')
 
