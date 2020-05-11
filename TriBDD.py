@@ -33,11 +33,9 @@ regionlist = [
 ]
 df = pandas.json_normalize(pandas.json_normalize(data, ["records"], max_level=0).loc[:,'fields'])
 df.drop(columns = ['image_thumb','city_district','image','free_text', 'timetable', 'lang'], inplace = True)
-
 df = df.loc[df['region'].isin(regionlist),:]
 df = df.dropna(subset=["title", "latlon"])
-
-
+df = df.drop_duplicates(['title', 'date_start'])
 
 m = folium.Map(location=[45.770799, 3.095003], zoom_start=6)
 
@@ -54,7 +52,7 @@ for row in df.itertuples():
     h3{color : Grey}
     a{color : Black;
     text-decoration:none}
-    a:hover{color : Grey}   
+    a:hover{color : Grey}
             """
     html = """
     <head>
