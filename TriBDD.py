@@ -36,7 +36,7 @@ df = df.dropna(subset=["title", "latlon"])
 
 
 
-m = folium.Map(location=[48.103098,-1.6716781], zoom_start=13)
+m = folium.Map(location=[45.770799, 3.095003], zoom_start=6)
 
 mc = MarkerCluster()
 
