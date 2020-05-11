@@ -1,6 +1,7 @@
 import urllib.request as urlr
 import json
 import pandas
+import folium
 from datetime import datetime as dt
 
 moisannee = dt.strftime(dt.now(), "%Y-%m")
@@ -30,5 +31,14 @@ df = pandas.json_normalize(pandas.json_normalize(data, ["records"], max_level=0)
 df.drop(columns = ['image_thumb','city_district','image','free_text', 'timetable', 'lang'], inplace = True)
 
 df = df.loc[df['region'].isin(regionlist),:]
+df = df.dropna(subset=["title", "latlon"])
+df.to_csv('myFile.csv', sep = '\t')
+print(df)
+
+m = folium.Map(location=[48.103098,-1.6716781], zoom_start=13)
+for row in df.itertuples():
+    folium.Marker(location=row.latlon, popup=row.title).add_to(m)
+
+m.save('mapBD.html')
 
 
