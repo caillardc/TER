@@ -50,11 +50,21 @@ for row in df.itertuples():
         date = date_start1
     else :
         date = date_start1+" au "+date_end1
+    style = """
+    h3{color : Grey}
+    a{color : Black;
+    text-decoration:none}
+    a:hover{color : Grey}   
+            """
     html = """
-    <h3> {} </h3><br>
-    <a href=\"{}\" target=\"_blank\"><p> {} </p></a>
-    """.format(date, row.link, row.title)
-    iframe = folium.IFrame(html=html, width=200, height=200)
+    <head>
+    <style> {}
+    </style>
+    </head>
+    <h3> {} </h3>
+    <a href=\"{}\" target=\"_blank\"><h5> {} </h5></a>
+    """.format(style, date, row.link, row.title)
+    iframe = folium.IFrame(html=html, width=210, height=130)
     popup = folium.Popup(iframe, max_width=2650)
     folium.Marker(location=row.latlon, popup=popup).add_to(mc)
 m.add_child(mc)
