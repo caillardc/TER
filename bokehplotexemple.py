@@ -1,20 +1,14 @@
-import csv
-from datetime import datetime
-from bokeh.plotting import figure, output_file, show
+from bokeh.embed import components
+from bokeh.plotting import figure
 
-data={'Date':[], 'Volume':[]}
+x_values = [1, 2, 3, 4, 5]
+y_values = [6, 7, 2, 3, 6]
 
-with open('MSFT.csv', newline='') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-        data['Date'].append(datetime.strptime(row['Date'],'%Y-%m-%d'))
-        data['Volume'].append(int(row['Volume']))
+p = figure(sizing_mode="stretch_width", height=500)
 
-output_file("exemple.html")
 
-print(data['Date'])
+p.hbar(y=[1, 2, 3], height=0.5, left=0,
+       right=[1.2, 2.5, 3.7], color="navy")
 
-p = figure(plot_width=800, plot_height=250, x_axis_type="datetime")
-
-p.line(data['Date'], data['Volume'], color="black", alpha=0.5)
-show(p)
+script,div = components(p)
+print(div, script)
