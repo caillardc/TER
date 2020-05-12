@@ -11,7 +11,7 @@ locale.setlocale(locale.LC_TIME, "fr_FR")
 moisannee = dt.strftime(dt.now(), "%Y-%m")
 
 url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=evenements-publics-cibul&" \
-      "q=&rows=10000&facet=placename&facet=department&facet=region&facet=city&" \
+      "q=&rows=100&facet=placename&facet=department&facet=region&facet=city&" \
       "facet=date_start&facet=date_end&facet=pricing_info&refine.date_start=" + moisannee
 
 data = json.load(urlr.urlopen(url))
@@ -32,7 +32,7 @@ regionlist = [
     "Provence-Alpes-Côte d'Azur",
 ]
 df = pandas.json_normalize(pandas.json_normalize(data, ["records"], max_level=0).loc[:,'fields'])
-df.drop(columns = ['image_thumb','city_district','image','free_text', 'timetable', 'lang'], inplace = True)
+df.drop(columns = ['image_thumb','city_district','free_text', 'timetable', 'lang'], inplace = True)
 df = df.loc[df['region'].isin(regionlist),:]
 df = df.dropna(subset=["title", "latlon"])
 df = df.drop_duplicates(['title', 'date_start'])
@@ -53,15 +53,25 @@ for row in df.itertuples():
     a{color : Black;
     text-decoration:none}
     a:hover{color : Grey}
+    img{
+        width: 28%;
+        padding-right: 2%;
+    }
+    h3{width:70%;}
+    h3, img{
+        display: inline-block; 
+        vertical-align: middle;
+    }
             """
     html = """
     <head>
     <style> {}
     </style>
-    </head>
-    <h3> {} </h3>
-    <a href=\"{}\" target=\"_blank\"><h5> {} </h5></a>
-    """.format(style, date, row.link, row.title)
+    </head>""".format(style )
+    if str(row.image).lower() != 'nan':
+        html+= "<div id='corps'><a href='{}' target=\"_blank\"><img  src= '{}' alt='Affiche'></a>".format(row.image, row.image)
+    html += '<h3> {} </h3>' \
+            '<a href=\"{}\" target=\"_blank\"><h5> {} </h5></a></div>'.format(date,row.link, row.title)
     iframe = folium.IFrame(html=html, width=210, height=130)
     popup = folium.Popup(iframe, max_width=2650)
     folium.Marker(location=row.latlon, popup=popup).add_to(mc)
