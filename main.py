@@ -273,7 +273,7 @@ try:
 except OSError:
     pass
 
-fp = open(os.path.join('site', 'sitepython.html'), 'w', encoding='UTF-8')
+fp = open(os.path.join('site', 'index.html'), 'w', encoding='UTF-8')
 fp.write(CodeHTML)
 fp.close()
 
@@ -395,7 +395,7 @@ p#firsttxt, #vertical, {
 	font-size: 7em;
 	width:100%;
 }
- @media(max-width: 1500px) {
+@media(max-width: 1500px) {
 	#zonechiffre > .container > .bloc p#firsttxt{
 		font-size: 5rem;
 	}
@@ -404,7 +404,7 @@ p#firsttxt, #vertical, {
 	}
  }
  
- @media(max-width: 1200px) {
+@media(max-width: 1200px) {
 	#zonechiffre > .container > .bloc {
 		position: relative;
 		display: block;
@@ -426,7 +426,7 @@ p#firsttxt, #vertical, {
 	
 	#zonechiffre > .container > .bloc > .txtpre{
 		width: 60%;
-	}
+	}	
 }
 #zonechiffre > .container > .bloc span#vertical{
 	color: white;
@@ -479,6 +479,15 @@ p#firsttxt, #vertical, {
 }
 #zonecarte > .container > .bloc.bloc.carte {
 	width : 70%;
+}
+
+@media(max-width: 1000px) {
+    #zonecarte > .container > .bloc.bloc1 {
+        width : 60%;
+    }
+    #zonecarte > .container > .bloc.bloc.carte {
+        width : 40%;
+    }
 }
 
 #zonecarte > .container > .bloc iframe {
