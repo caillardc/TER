@@ -10,7 +10,8 @@ from bokeh.palettes import Category20
 from bokeh.embed import components
 import os
 
-
+# Fonction qui prend en entrée un mois (int) et une année (int)
+# Retourne le nombre de jours (int) dans le mois en question
 def getDay(year, month):
     if month in [4, 6, 9, 11]:
         return 30
@@ -20,13 +21,14 @@ def getDay(year, month):
         return 28
     return 31
 
-
+# Definition de la langue locale en Français pour la gestion des noms de mois pour les dates
 locale.setlocale(locale.LC_TIME, "fr_FR")
 
+# Definition du mois en cours et de son nombre de jours
 moisannee = dt.strftime(dt.now(), "%Y-%m")
 nbjourmois = getDay(int(moisannee[:-3]),int(moisannee[-2:]))
 
-#DATA FRAME
+# DATA FRAME
 
 url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=evenements-publics-cibul&" \
       "q=&rows=10000&facet=placename&facet=department&facet=region&facet=city&" \
