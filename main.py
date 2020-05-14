@@ -534,8 +534,8 @@ p#firsttxt, #vertical, {
 }
 
 .zonegraph > .container {
-  padding-top: 2rem;
-  padding-bottom: 2rem; 
+  padding-top: 4rem;
+  padding-bottom: 4rem; 
   border-bottom: 1px solid #ddd;
 }
 
