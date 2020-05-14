@@ -56,7 +56,7 @@ df = df.dropna(subset=["title", "latlon"])
 df = df.drop_duplicates(['title', 'date_start'])
 
 #CARTE
-m = folium.Map(location=[45.770799, 3.095003], zoom_start=5, control_scale=False)
+m = folium.Map(location=[45.770799, 3.095003], zoom_start=6, control_scale=False)
 
 GroupEvenement = MarkerCluster(name="L'ensemble des événements")
 group1 =folium.plugins.FeatureGroupSubGroup(GroupEvenement, name="Les évenement du 1 au 6{}"
