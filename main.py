@@ -234,8 +234,8 @@ CodeHTML = """
   <div class="bloc bloc1"><div class= "texte"><h3>
   Voici une carte des événements du mois de {mois} en France:
   </h3><p>
-  Cette carte représente les événements ayant lieu en France qui commence au mois de {mois} {annee}.
-  Vous pouvez trier les événements selon leur dates de début. Pour avoir plus d'information sur un événement il
+  Cette carte représente les événements ayant lieu en France qui commencent au mois de {mois} {annee}.
+  Vous pouvez trier les événements selon leur date de début. Pour avoir plus d'informations sur un événement, il
   suffit de cliquer sur l'icone de celui-ci.
   </p></div></div><div class="bloc carte"><div id='lacarte'>
   {carte}
@@ -245,17 +245,17 @@ CodeHTML = """
   <div class="bloc graph">
   <div class = "legraph">{divg1}
   </div></div><div class="bloc bloc1"><div class= "texte"><h3>
-  Les évenements par régions :
+  Les événements par dates :
   </h3><p>
-  Vous pouvez voir ci-contre le nombre d'évenement par jour durant le mois de {mois} {annee}
+  Vous pouvez voir ci-contre le nombre d'évenements par jour durant le mois de {mois} {annee}
   en fonction de leur date de début.
   </p></div></div></div></div>
   
   <div class= "zonegraph" id= "second"><div class= "container">
   <div class="bloc bloc1"><div class= "texte"><h3>
-  Les événements par dates :
+  Les évenements par régions :
   </h3><p>
-  Le graphe suivant représente le nombre d'évenement par region durant le mois de {mois} {annee}
+  Le graphe suivant représente le nombre d'évenements par region durant le mois de {mois} {annee}
   </p></div></div><div class="bloc graph"><div class = "legraph">{divg2}
   </div></div></div></div></article><footer><div class= "texte"><p>
   © Site web du TER réalisé par Rémi Leduc, Mélanie Guillouet, Clément Caillard, Pauline Hamon-Giraud
