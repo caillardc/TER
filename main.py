@@ -11,11 +11,11 @@ from bokeh.embed import components
 import os
 
 
-def getDay(year,month):
-    if (month in [4,6,9,11]):
+def getDay(year, month):
+    if month in [4, 6, 9, 11]:
         return 30
     elif month == 2:
-        if (year % 4 == 0) and (year % 100 != 0) or  (year % 400 == 0):
+        if (year % 4 == 0) and (year % 100 != 0) or (year % 400 == 0):
             return 29
         return 28
     return 31
@@ -152,8 +152,6 @@ m.add_child(group3),  m.add_child(group4), m.add_child(group5)
 folium.LayerControl(collapsed=True).add_to(m)
 
 htmlcarte = m._repr_html_()
-htmlcarte = htmlcarte.replace(htmlcarte[0:207],'<iframe src="about:blank"')
-htmlcarte = htmlcarte.replace(htmlcarte[-12:], '')
 
 #GRAPHE 1
 
@@ -239,9 +237,9 @@ CodeHTML = """
   Cette carte représente les événements ayant lieu en France qui commence au mois de {mois} {annee}.
   Vous pouvez trier les événements selon leur dates de début. Pour avoir plus d'information sur un événement il
   suffit de cliquer sur l'icone de celui-ci.
-  </p></div></div><div class="bloc carte">
+  </p></div></div><div class="bloc carte"><div id='lacarte'>
   {carte}
-  </div></div></div>
+  </div></div></div></div>
   
   <div class= "zonegraph" id= "first"><div class= "container">
   <div class="bloc graph">
@@ -471,26 +469,17 @@ p#firsttxt, #vertical, {
 #zonecarte > .container > .bloc {
 	position: relative;
 	display: inline-block;
-	vertical-align: top;
-	height: 35rem;
+	vertical-align: middle;
 }
 #zonecarte > .container > .bloc.bloc1 {
 	width : 30%;
+	min-height: 500px;
 }
 #zonecarte > .container > .bloc.bloc.carte {
 	width : 70%;
 }
 
-@media(max-width: 1000px) {
-    #zonecarte > .container > .bloc.bloc1 {
-        width : 60%;
-    }
-    #zonecarte > .container > .bloc.bloc.carte {
-        width : 40%;
-    }
-}
-
-#zonecarte > .container > .bloc iframe {
+#zonecarte > .container > .bloc > #lacarte {
 	position:relative;
 	width:90%;
 	height: 100%;
@@ -521,6 +510,22 @@ p#firsttxt, #vertical, {
 	transform: translate(-50%, -50%);
 	width: 70%;
 	
+}
+
+@media(max-width: 1000px) {
+    #zonecarte > .container > .bloc.bloc1 {
+        width : 50%;
+    }
+    #zonecarte > .container > .bloc.bloc.carte {
+        width : 50%;
+    }
+    .container > .bloc > .texte h3 {
+        font-size: 1.4rem;
+    }  
+          
+    .container > .bloc > .texte p {
+        font-size: 0.8rem;
+    }
 }
 
 .zonegraph#first {
